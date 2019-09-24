@@ -7,6 +7,34 @@
     <groupId>com.moments</groupId>
     <artifactId>moments</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <fmt.maven.version>2.7</fmt.maven.version>
+    </properties>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.coveo</groupId>
+                <artifactId>fmt-maven-plugin</artifactId>
+                <version>${fmt.maven.version}</version>
+                <configuration>
+                    <sourceDirectory>src/main</sourceDirectory>
+                    <testSourceDirectory>src/test</testSourceDirectory>
+                    <verbose>false</verbose>
+                    <filesNamePattern>.*\.java</filesNamePattern>
+                    <skip>false</skip>
+                    <style>google</style>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
 
 </project>
